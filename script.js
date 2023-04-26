@@ -74,9 +74,8 @@ allKeys.forEach((button) => {
 });
 
 window.addEventListener("keyup", (e) => {
-  if (pressedBtn.key === "Capslock") return;
   let pressedBtn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  releaseBtn(pressedBtn);
+  if (pressedBtn.textContent != "caps") releaseBtn(pressedBtn);
 });
 
 symbolKeys.forEach((button) => {
