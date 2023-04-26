@@ -57,6 +57,10 @@ window.addEventListener("keydown", (e) => {
     buffer.push(arrowKeys[e.keyCode]);
   } else if (e.key === "CapsLock") {
     pressCaps();
+  } else if (e.key === "Shift") {
+  } else if (e.key === "Control") {
+  } else if (e.key === "Alt") {
+  } else if (e.key === "Delete") {
   } else {
     buffer.push(e.key);
     monitor.textContent += e.key;
