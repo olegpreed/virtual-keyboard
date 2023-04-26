@@ -45,6 +45,8 @@ body {
 
 .interface__screen::before {
   content: ">:";
+  margin-right: 6px;
+  letter-spacing: 0px;
 }
 
 .interface__screen {
@@ -53,9 +55,12 @@ body {
   height: var(--screen-height);
   border-radius: 10px 0px 0px 10px;
   color: var(--text-color);
-  font-family: "IBM Plex Mono", monospace;
-  text-shadow: 0 0 10px var(--text-color), 0 0 4px var(--text-color);
-  padding: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  text-shadow: 0 0 6px var(--text-color), 0 0 4px var(--text-color);
+  padding: 30px;
+  letter-spacing: 1px;
+  white-space: pre;
+  font-weight: 700;
 }
 
 .interface__side-panel {
@@ -115,6 +120,7 @@ body {
   color: var(--letter-color);
   font-family: "Red Hat Display", sans-serif;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .keyboard__key--special,

@@ -6,17 +6,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<script type="module" src="./script.js" defer></script>
 	<title>Virtual keyboard</title>
 </head>
 
 <body>
 	<main class="interface">
 		<section class="interface__monitor">
-			<div class="interface__screen">
-			</div>
+			<div class="interface__screen screen"><span class="screen__input"></span><span
+					class="screen__cursor">|</span></div>
 			<div class="interface__side-panel"></div>
 		</section>
 		<section class="interface__computer">
@@ -32,12 +35,12 @@
 					<div class="keyboard__key">8</div>
 					<div class="keyboard__key">9</div>
 					<div class="keyboard__key">0</div>
-					<div class="keyboard__key">+</div>
-					<div class="keyboard__key">-</div>
-					<div class="keyboard__key--special">del</div>
+					<div class="keyboard__key">:</div>
+					<div class="keyboard__key">!</div>
+					<div class="keyboard__key--special" id="del-btn">del</div>
 				</div>
 				<div class="keyboard__row">
-					<div class="keyboard__key--special">alt</div>
+					<div class="keyboard__key--special" id="alt-btn">alt</div>
 					<div class="keyboard__key">q</div>
 					<div class="keyboard__key">w</div>
 					<div class="keyboard__key">e</div>
@@ -49,10 +52,10 @@
 					<div class="keyboard__key">o</div>
 					<div class="keyboard__key">p</div>
 					<div class="keyboard__key">↑</div>
-					<div class="keyboard__key--long">backspace</div>
+					<div class="keyboard__key--long" id="backspace-btn">backspace</div>
 				</div>
 				<div class="keyboard__row">
-					<div class="keyboard__key--special">ctrl</div>
+					<div class="keyboard__key--special" id="ctrl-btn">ctrl</div>
 					<div class="keyboard__key">a</div>
 					<div class="keyboard__key">s</div>
 					<div class="keyboard__key">d</div>
@@ -62,12 +65,12 @@
 					<div class="keyboard__key">j</div>
 					<div class="keyboard__key">k</div>
 					<div class="keyboard__key">l</div>
-					<div class="keyboard__key">←</div>
-					<div class="keyboard__key">→</div>
-					<div class="keyboard__key--special">tab</div>
+					<div class="keyboard__key" id="left-btn">←</div>
+					<div class="keyboard__key" id="right-btn">→</div>
+					<div class="keyboard__key--special" id="tab-btn">tab</div>
 				</div>
 				<div class="keyboard__row">
-					<div class="keyboard__key--long">shift</div>
+					<div class="keyboard__key--long" id="shift-btn">shift</div>
 					<div class="keyboard__key">z</div>
 					<div class="keyboard__key">x</div>
 					<div class="keyboard__key">c</div>
@@ -78,11 +81,11 @@
 					<div class="keyboard__key">,</div>
 					<div class="keyboard__key">.</div>
 					<div class="keyboard__key">↓</div>
-					<div class="keyboard__key--long">enter</div>
+					<div class="keyboard__key--long" id="enter-btn">enter</div>
 				</div>
 				<div class="keyboard__row--last">
-					<div class="keyboard__key--special">caps</div>
-					<div class="keyboard__key--space"></div>
+					<div class="keyboard__key--special" id="caps-btn">caps</div>
+					<div class="keyboard__key--space" id="space-btn"></div>
 				</div>
 			</div>
 		</section>
