@@ -65,6 +65,11 @@ body {
   font-weight: 700;
   white-space: pre-wrap;
   word-wrap: break-word;
+  overflow: auto;
+}
+
+.interface__screen::-webkit-scrollbar {
+  width: 0;
 }
 
 .interface__side-panel {

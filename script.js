@@ -1,6 +1,7 @@
 // import { Node, printList } from "./classes.js";
 
 const symbolKeys = document.querySelectorAll(".keyboard__key");
+const terminal = document.querySelector(".interface__screen");
 const monitor = document.querySelector(".screen__input");
 const cursor = document.querySelector(".screen__cursor");
 const space = document.getElementById("space-btn");
@@ -30,7 +31,8 @@ const arrowKeys = {
 let capsPressed;
 
 window.addEventListener("keydown", (e) => {
-  e.preventDefault();
+  terminal.scrollTop = terminal.scrollHeight; // allows screen to scroll down automatically when text overflows
+  e.preventDefault(); // removes default behavior of keydown events like when pressing space moves page down
   let pressedBtn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   pressBtn(pressedBtn);
   if (e.key === "Backspace") {
@@ -98,6 +100,11 @@ space.addEventListener("click", () => {
 
 capsLock.addEventListener("click", () => {
   pressCaps();
+});
+
+enter.addEventListener("click", () => {
+  monitor.textContent += "\n";
+  buffer.push("\n");
 });
 
 function pressCaps() {
