@@ -7,12 +7,14 @@
   --monitor-height: calc(var(--screen-height) + 60px);
   --key-width: 42px;
   --key-color: #3a3732;
+  --key-pressed-color: #262421;
   --computer-color: #c3beb5;
   --monitor-color: var(--computer-color);
   --screen-color: #000000;
   --panel-color: #675e69;
   --text-color: #45ad45;
   --letter-color: #e1ddd6;
+  --letter-pressed-color: #9b9997;
 }
 
 * {
@@ -55,12 +57,14 @@ body {
   height: var(--screen-height);
   border-radius: 10px 0px 0px 10px;
   color: var(--text-color);
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
   text-shadow: 0 0 6px var(--text-color), 0 0 4px var(--text-color);
   padding: 30px;
   letter-spacing: 1px;
   white-space: pre;
   font-weight: 700;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .interface__side-panel {
@@ -120,6 +124,8 @@ body {
   color: var(--letter-color);
   font-family: "Red Hat Display", sans-serif;
   text-transform: uppercase;
+  position: relative;
+  transition: 300ms;
   cursor: pointer;
 }
 

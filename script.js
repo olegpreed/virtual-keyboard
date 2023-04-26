@@ -1,11 +1,12 @@
 // import { Node, printList } from "./classes.js";
 
-const buttons = document.querySelectorAll(".keyboard__key");
-const screen = document.querySelector(".screen__input");
+const symbolKeys = document.querySelectorAll(".keyboard__key");
+const monitor = document.querySelector(".screen__input");
 const cursor = document.querySelector(".screen__cursor");
 const space = document.getElementById("space-btn");
 const ctrl = document.getElementById("ctrl-btn");
 const del = document.getElementById("del-btn");
+const allKeys = document.querySelectorAll(".key");
 const alt = document.getElementById("alt-btn");
 const tab = document.getElementById("tab-btn");
 const shift = document.getElementById("shift-btn");
@@ -14,25 +15,93 @@ const capsLock = document.getElementById("caps-btn");
 const backspace = document.getElementById("backspace-btn");
 
 let buffer = [];
-screen.textContent = "";
+monitor.textContent = "";
 setInterval(() => {
   cursor.style.display = cursor.style.display === "none" ? "inline" : "none";
 }, 1000);
 
-buttons.forEach((button) => {
+const arrowKeys = {
+  37: "←",
+  38: "↑",
+  39: "→",
+  40: "↓",
+};
+
+window.addEventListener("keydown", (e) => {
+  e.preventDefault();
+  let pressedBtn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  pressBtn(pressedBtn);
+  if (e.key === "Backspace") {
+    buffer.pop();
+    monitor.textContent = buffer.join("");
+  } else if (e.key === "Enter") {
+    monitor.textContent += "\n";
+    buffer.push("\n");
+  } else if (e.key === "Tab") {
+    monitor.textContent += "\t";
+    buffer.push("\t");
+  } else if (e.key === " ") {
+    monitor.textContent += " ";
+    buffer.push(" ");
+  } else if (
+    e.key === "ArrowUp" ||
+    e.key === "ArrowDown" ||
+    e.key === "ArrowLeft" ||
+    e.key === "ArrowRight"
+  ) {
+    monitor.textContent += arrowKeys[e.keyCode];
+    buffer.push(arrowKeys[e.keyCode]);
+  } else if (e.key === "CapsLock") {
+  } else {
+    buffer.push(e.key);
+    monitor.textContent += e.key;
+  }
+});
+
+allKeys.forEach((button) => {
   button.addEventListener("click", () => {
-    screen.textContent += button.textContent;
+    pressBtn(button);
+  });
+});
+
+allKeys.forEach((button) => {
+  button.addEventListener("transitionend", () => {
+    releaseBtn(button);
+  });
+});
+
+window.addEventListener("keyup", (e) => {
+  console.log(e.keyCode);
+  let pressedBtn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  releaseBtn(pressedBtn);
+});
+
+symbolKeys.forEach((button) => {
+  button.addEventListener("click", () => {
+    monitor.textContent += button.textContent;
     buffer.push(button.textContent);
   });
 });
 
 backspace.addEventListener("click", () => {
   buffer.pop();
-  screen.textContent = buffer.join("");
+  monitor.textContent = buffer.join("");
 });
 
 space.addEventListener("click", () => {
   buffer.push(" ");
-  screen.textContent += " ";
+  monitor.textContent += " ";
   console.log(buffer);
 });
+
+function releaseBtn(btn) {
+  btn.style.backgroundColor = "var(--key-color)";
+  btn.style.color = "var(--letter-color)";
+  btn.style.top = "0";
+}
+
+function pressBtn(btn) {
+  btn.style.backgroundColor = "var(--key-pressed-color)";
+  btn.style.color = "var(--letter-pressed-color)";
+  btn.style.top = "2px";
+}
