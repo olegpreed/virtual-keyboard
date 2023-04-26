@@ -27,6 +27,8 @@ const arrowKeys = {
   40: "↓",
 };
 
+let capsPressed;
+
 window.addEventListener("keydown", (e) => {
   e.preventDefault();
   let pressedBtn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
@@ -52,6 +54,25 @@ window.addEventListener("keydown", (e) => {
     monitor.textContent += arrowKeys[e.keyCode];
     buffer.push(arrowKeys[e.keyCode]);
   } else if (e.key === "CapsLock") {
+    capsPressed = !capsPressed;
+    capsLock.style.backgroundColor = capsPressed
+      ? "var(--key-pressed-color)"
+      : "var(--key-color)";
+    capsLock.style.color = capsPressed
+      ? "var(--letter-pressed-color)"
+      : "var(--letter-color)";
+    capsLock.style.top = capsPressed ? "2px" : "0";
+    if (capsPressed) {
+      symbolKeys.forEach((button) => {
+        if (button.innerHTML === "Capslock") return;
+        button.textContent = button.textContent.toUpperCase();
+      });
+    } else {
+      symbolKeys.forEach((button) => {
+        if (button.innerHTML === "Capslock") return;
+        button.textContent = button.textContent.toLowerCase();
+      });
+    }
   } else {
     buffer.push(e.key);
     monitor.textContent += e.key;
@@ -66,12 +87,12 @@ allKeys.forEach((button) => {
 
 allKeys.forEach((button) => {
   button.addEventListener("transitionend", () => {
-    releaseBtn(button);
+    if (button.innerHTML != "caps") releaseBtn(button);
   });
 });
 
 window.addEventListener("keyup", (e) => {
-  console.log(e.keyCode);
+  if (pressedBtn.key === "Capslock") return;
   let pressedBtn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   releaseBtn(pressedBtn);
 });
