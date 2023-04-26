@@ -1,0 +1,108 @@
+:root {
+  --bg-color: #1e1e24;
+  --screen-width: 512px;
+  --screen-height: 400px;
+  --panel-width: calc((var(--screen-width) / 4));
+  --monitor-width: calc(var(--screen-width) + 200px);
+  --monitor-height: calc(var(--screen-height) + 60px);
+  --key-width: 42px;
+  --key-color: #3a3732;
+  --computer-color: #c3beb5;
+  --monitor-color: var(--computer-color);
+  --screen-color: #000000;
+  --panel-color: #675e69;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.interface {
+  display: flex;
+  flex-direction: column;
+}
+
+.interface__monitor {
+  width: var(--monitor-width);
+  height: var(--monitor-height);
+  background-color: var(--monitor-color);
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interface__screen {
+  background-color: var(--screen-color);
+  width: var(--screen-width);
+  height: var(--screen-height);
+  border-radius: 10px 0px 0px 10px;
+}
+
+.interface__side-panel {
+  height: var(--screen-height);
+  width: var(--panel-width);
+  background-color: var(--panel-color);
+  border-radius: 0 10px 10px 0;
+}
+
+.interface__computer {
+  width: var(--monitor-width);
+  height: 300px;
+  background: var(--computer-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.keyboard__row,
+.keyboard__row--first,
+.keyboard__row--last {
+  display: flex;
+}
+
+.keyboard__row--first {
+  align-self: flex-end;
+}
+
+.keyboard__row--last {
+  align-self: flex-start;
+  position: relative;
+  left: calc((var(--key-width) / 4));
+  width: 78%;
+  justify-content: space-between;
+}
+
+.keyboard__key,
+.keyboard__key--long,
+.keyboard__key--space {
+  width: var(--key-width);
+  height: var(--key-width);
+  background-color: var(--key-color);
+  margin: 2px;
+  border-radius: 2px;
+}
+
+.keyboard__key--long {
+  width: calc(var(--key-width) * 1.54) !important;
+}
+
+.keyboard__key--space {
+  width: calc(var(--key-width) * 8) !important;
+}
