@@ -11,6 +11,8 @@
   --monitor-color: var(--computer-color);
   --screen-color: #000000;
   --panel-color: #675e69;
+  --text-color: #45ad45;
+  --letter-color: #e1ddd6;
 }
 
 * {
@@ -41,11 +43,19 @@ body {
   justify-content: center;
 }
 
+.interface__screen::before {
+  content: ">:";
+}
+
 .interface__screen {
   background-color: var(--screen-color);
   width: var(--screen-width);
   height: var(--screen-height);
   border-radius: 10px 0px 0px 10px;
+  color: var(--text-color);
+  font-family: "IBM Plex Mono", monospace;
+  text-shadow: 0 0 10px var(--text-color), 0 0 4px var(--text-color);
+  padding: 20px;
 }
 
 .interface__side-panel {
@@ -91,15 +101,30 @@ body {
 
 .keyboard__key,
 .keyboard__key--long,
-.keyboard__key--space {
+.keyboard__key--special,
+.keyboard__key--space,
+.keyboard__key--down {
   width: var(--key-width);
   height: var(--key-width);
   background-color: var(--key-color);
   margin: 2px;
   border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--letter-color);
+  font-family: "Red Hat Display", sans-serif;
+  text-transform: uppercase;
 }
 
+.keyboard__key--special,
 .keyboard__key--long {
+  font-size: 10px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.keyboard__key--long,
+.keyboard__key--down {
   width: calc(var(--key-width) * 1.54) !important;
 }
 
