@@ -54,25 +54,7 @@ window.addEventListener("keydown", (e) => {
     monitor.textContent += arrowKeys[e.keyCode];
     buffer.push(arrowKeys[e.keyCode]);
   } else if (e.key === "CapsLock") {
-    capsPressed = !capsPressed;
-    capsLock.style.backgroundColor = capsPressed
-      ? "var(--key-pressed-color)"
-      : "var(--key-color)";
-    capsLock.style.color = capsPressed
-      ? "var(--letter-pressed-color)"
-      : "var(--letter-color)";
-    capsLock.style.top = capsPressed ? "2px" : "0";
-    if (capsPressed) {
-      symbolKeys.forEach((button) => {
-        if (button.innerHTML === "Capslock") return;
-        button.textContent = button.textContent.toUpperCase();
-      });
-    } else {
-      symbolKeys.forEach((button) => {
-        if (button.innerHTML === "Capslock") return;
-        button.textContent = button.textContent.toLowerCase();
-      });
-    }
+    pressCaps();
   } else {
     buffer.push(e.key);
     monitor.textContent += e.key;
@@ -114,6 +96,32 @@ space.addEventListener("click", () => {
   monitor.textContent += " ";
   console.log(buffer);
 });
+
+capsLock.addEventListener("click", () => {
+  pressCaps();
+});
+
+function pressCaps() {
+  capsPressed = !capsPressed;
+  capsLock.style.backgroundColor = capsPressed
+    ? "var(--key-pressed-color)"
+    : "var(--key-color)";
+  capsLock.style.color = capsPressed
+    ? "var(--letter-pressed-color)"
+    : "var(--letter-color)";
+  capsLock.style.top = capsPressed ? "2px" : "0";
+  if (capsPressed) {
+    symbolKeys.forEach((button) => {
+      if (button.innerHTML === "Capslock") return;
+      button.textContent = button.textContent.toUpperCase();
+    });
+  } else {
+    symbolKeys.forEach((button) => {
+      if (button.innerHTML === "Capslock") return;
+      button.textContent = button.textContent.toLowerCase();
+    });
+  }
+}
 
 function releaseBtn(btn) {
   btn.style.backgroundColor = "var(--key-color)";
