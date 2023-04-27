@@ -52,7 +52,7 @@ body {
   /* border-bottom: 5px solid rgba(0, 0, 0, 0.143); */
 }
 
-.interface__screen::before {
+.screen__input::before {
   content: ">:";
   margin-right: 6px;
   letter-spacing: 0px;
@@ -68,7 +68,6 @@ body {
   text-shadow: 0 0 6px var(--text-color), 0 0 4px var(--text-color);
   padding: 30px;
   letter-spacing: 1px;
-  white-space: pre;
   font-weight: 700;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -77,6 +76,11 @@ body {
 
 .interface__screen::-webkit-scrollbar {
   width: 0;
+}
+
+.screen__cursor {
+	opacity: 1;
+	transition: 300ms;
 }
 
 .interface__side-panel {
@@ -92,38 +96,38 @@ body {
 }
 
 .side-panel__note {
-	display: flex;
-	flex-direction: column;
-	rotate: -10deg;
+  display: flex;
+  flex-direction: column;
+  rotate: -10deg;
 }
 
 .note__stick {
-	width: calc(var(--note-width) / 3);
-	height: calc(var(--note-width) / 6);;
-	background-color: var(--stick-color);
-	align-self: center;
-	opacity: 0.7;
-	position: relative;
-	top: 14px;
+  width: calc(var(--note-width) / 3);
+  height: calc(var(--note-width) / 6);
+  background-color: var(--stick-color);
+  align-self: center;
+  opacity: 0.7;
+  position: relative;
+  top: 14px;
 }
 
 .note__note {
-	width: var(--note-width);
-	height: var(--note-width);
-	background-color: var(--note-color);
-	padding: 30px 10px;
-	font-family: 'Rock Salt', cursive;
-	font-size: 10px;
-	color: var(--note-text-color);
-	text-align: center;
-	box-shadow: -3px 4px 0px rgba(0, 0, 0, 0.337);
+  width: var(--note-width);
+  height: var(--note-width);
+  background-color: var(--note-color);
+  padding: 30px 10px;
+  font-family: "Rock Salt", cursive;
+  font-size: 10px;
+  color: var(--note-text-color);
+  text-align: center;
+  box-shadow: -3px 4px 0px rgba(0, 0, 0, 0.337);
 }
 
 .side-panel__logo {
-	width: 80%;
-	flex-grow: 0;
-	mix-blend-mode: multiply;
-	opacity: 70%;
+  width: 80%;
+  flex-grow: 0;
+  mix-blend-mode: multiply;
+  opacity: 70%;
 }
 
 .interface__computer {
@@ -197,5 +201,5 @@ body {
 }
 
 #enter-btn {
-	background-color: var(--enter-key-color);
+  background-color: var(--enter-key-color);
 }

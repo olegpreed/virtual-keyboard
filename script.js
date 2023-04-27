@@ -16,7 +16,7 @@ const capsLock = document.getElementById("caps-btn");
 const backspace = document.getElementById("backspace-btn");
 
 setInterval(() => {
-  cursor.style.display = cursor.style.display === "none" ? "inline" : "none";
+  cursor.style.opacity = cursor.style.opacity === "1" ? "0" : "1";
 }, 800);
 
 let buffer = [];
@@ -49,8 +49,15 @@ window.addEventListener("keydown", (e) => {
     buffer.pop();
     monitor.textContent = buffer.join("");
   } else if (e.key === "Enter") {
-    monitor.textContent += "\n";
-    buffer.push("\n");
+    if (
+      monitor.textContent === "4 8 15 16 23 42" ||
+      monitor.textContent === "4815162342"
+    )
+      easterEgg();
+    else {
+      monitor.textContent += "\n";
+      buffer.push("\n");
+    }
   } else if (e.key === "Tab") {
     monitor.textContent += "\t";
     buffer.push("\t");
@@ -199,4 +206,8 @@ function changeLang() {
 function insertKey(key) {
   buffer.push(key);
   monitor.textContent += key;
+}
+
+function easterEgg(){
+	monitor.style.color = "red";
 }
