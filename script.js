@@ -68,13 +68,13 @@ window.addEventListener("keydown", (e) => {
 });
 
 allKeys.forEach((button) => {
-  button.addEventListener("click", () => {
+  button.addEventListener("mousedown", () => {
     pressBtn(button);
   });
 });
 
 allKeys.forEach((button) => {
-  button.addEventListener("transitionend", () => {
+  button.addEventListener("mouseup", () => {
     if (button.innerHTML != "caps") releaseBtn(button);
   });
 });
