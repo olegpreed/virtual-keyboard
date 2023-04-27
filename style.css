@@ -2,6 +2,7 @@
   --bg-color: #1e1e24;
   --screen-width: 512px;
   --screen-height: 400px;
+  --note-width: 160px;
   --panel-width: calc((var(--screen-width) / 4));
   --monitor-width: calc(var(--screen-width) + 200px);
   --monitor-height: calc(var(--screen-height) + 60px);
@@ -17,6 +18,9 @@
   --letter-pressed-color: #9b9997;
   --enter-key-color: #a28282;
   --enter-key-pressed-color: #7f6666;
+  --stick-color: white;
+  --note-color: #ffffae;
+  --note-text-color: rgba(33, 33, 96, 0.932);
 }
 
 * {
@@ -88,10 +92,31 @@ body {
 }
 
 .side-panel__note {
-	width: 200px;
+	display: flex;
+	flex-direction: column;
 	rotate: -10deg;
-	filter:saturate(0.9);
-	mix-blend-mode: lighten;
+}
+
+.note__stick {
+	width: calc(var(--note-width) / 3);
+	height: calc(var(--note-width) / 6);;
+	background-color: var(--stick-color);
+	align-self: center;
+	opacity: 0.7;
+	position: relative;
+	top: 14px;
+}
+
+.note__note {
+	width: var(--note-width);
+	height: var(--note-width);
+	background-color: var(--note-color);
+	padding: 30px 10px;
+	font-family: 'Rock Salt', cursive;
+	font-size: 10px;
+	color: var(--note-text-color);
+	text-align: center;
+	box-shadow: -3px 4px 0px rgba(0, 0, 0, 0.337);
 }
 
 .side-panel__logo {
