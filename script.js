@@ -29,9 +29,6 @@ const arrowKeys = {
 };
 
 let capsPressed;
-if (localStorage.getItem("lang") === undefined) {
-  localStorage.setItem("lang", "eng");
-}
 
 window.addEventListener("keydown", (e) => {
   terminal.scrollTop = terminal.scrollHeight; // allows screen to scroll down automatically when text overflows
