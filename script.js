@@ -208,6 +208,17 @@ function insertKey(key) {
   monitor.textContent += key;
 }
 
-function easterEgg(){
-	monitor.style.color = "red";
+function easterEgg() {
+  function randomChar() {
+    return String.fromCharCode(0x13000 + Math.random() * (0x131B9-0x13000+1));
+  }
+  terminal.style.setProperty("--text-color", "red");
+  monitor.classList.add('easter-egg');
+  monitor.textContent = "";
+  setTimeout(() => {
+    setInterval(() => {
+      terminal.scrollTop = terminal.scrollHeight;
+      monitor.textContent += randomChar();
+    }, 4);
+  }, 1500);
 }

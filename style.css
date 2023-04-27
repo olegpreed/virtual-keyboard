@@ -56,6 +56,11 @@ body {
   content: ">:";
   margin-right: 6px;
   letter-spacing: 0px;
+  font-family: "IBM Plex Mono", monospace !important; 
+}
+
+.easter-egg {
+  font-family: "Noto Sans Egyptian Hieroglyphs", sans-serif;
 }
 
 .interface__screen {
@@ -79,8 +84,8 @@ body {
 }
 
 .screen__cursor {
-	opacity: 1;
-	transition: 300ms;
+  opacity: 1;
+  transition: 300ms;
 }
 
 .interface__side-panel {
