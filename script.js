@@ -73,10 +73,12 @@ window.addEventListener("keydown", (e) => {
     }
     if (lang === "rus") {
       if (capsPressed) {
-        key = engToRus[key.toLowerCase()].toUpperCase();
+		let temp = engToRus[key.toLowerCase()].toUpperCase(); //checks if key is a letter
+        key = temp ? temp : key;
         insertKey(key);
       } else {
-        key = engToRus[key];
+		let temp = engToRus[key]; //checks if key is a letter
+        key = temp ? temp : key;
         insertKey(key);
       }
     } else {
@@ -180,12 +182,14 @@ function changeLang() {
   if (lang === "eng") {
     lang = "rus";
     symbolKeys.forEach((button) => {
-      button.textContent = engToRus[button.textContent.toLowerCase()];
+		let rusKey = engToRus[button.textContent.toLowerCase()];
+        button.textContent =  rusKey ? rusKey : button.textContent;
     });
   } else {
     lang = "eng";
     symbolKeys.forEach((button) => {
-      button.textContent = rusToEng(button.textContent);
+		let engKey = rusToEng(button.textContent);
+        button.textContent = engKey ? engKey : button.textContent;
     });
   }
 }

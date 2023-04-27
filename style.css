@@ -45,6 +45,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border-bottom: 5px solid rgba(0, 0, 0, 0.143); */
 }
 
 .interface__screen::before {
@@ -79,6 +80,17 @@ body {
   width: var(--panel-width);
   background-color: var(--panel-color);
   border-radius: 0 10px 10px 0;
+  padding: 20px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.side-panel__logo {
+	width: 80%;
+	flex-grow: 0;
+	mix-blend-mode: multiply;
+	opacity: 70%;
 }
 
 .interface__computer {
