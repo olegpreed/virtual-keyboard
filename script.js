@@ -29,7 +29,9 @@ const arrowKeys = {
 };
 
 let capsPressed;
-let lang = "eng";
+if (localStorage.getItem("lang") === undefined) {
+  localStorage.setItem("lang", "eng");
+}
 
 window.addEventListener("keydown", (e) => {
   terminal.scrollTop = terminal.scrollHeight; // allows screen to scroll down automatically when text overflows
@@ -71,7 +73,7 @@ window.addEventListener("keydown", (e) => {
       buffer.push(key);
       monitor.textContent += key;
     }
-    if (lang === "rus") {
+    if (localStorage.getItem("lang") === "rus") {
       if (capsPressed) {
 		let temp = engToRus[key.toLowerCase()].toUpperCase(); //checks if key is a letter
         key = temp ? temp : key;
@@ -179,14 +181,14 @@ function changeLang() {
   function rusToEng(symbol) {
     return Object.keys(engToRus).find((key) => engToRus[key] === symbol);
   }
-  if (lang === "eng") {
-    lang = "rus";
+  if (localStorage.getItem("lang") === "eng") {
+    localStorage.setItem("lang", "rus");
     symbolKeys.forEach((button) => {
 		let rusKey = engToRus[button.textContent.toLowerCase()];
         button.textContent =  rusKey ? rusKey : button.textContent;
     });
   } else {
-    lang = "eng";
+	localStorage.setItem("lang", "eng");
     symbolKeys.forEach((button) => {
 		let engKey = rusToEng(button.textContent);
         button.textContent = engKey ? engKey : button.textContent;
