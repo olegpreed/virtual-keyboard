@@ -15,6 +15,8 @@
   --text-color: #45ad45;
   --letter-color: #e1ddd6;
   --letter-pressed-color: #9b9997;
+  --enter-key-color: #a28282;
+  --enter-key-pressed-color: #7f6666;
 }
 
 * {
@@ -147,4 +149,8 @@ body {
 
 .keyboard__key--space {
   width: calc(var(--key-width) * 8) !important;
+}
+
+#enter-btn {
+	background-color: var(--enter-key-color);
 }

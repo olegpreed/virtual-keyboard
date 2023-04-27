@@ -58,9 +58,9 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key === "CapsLock") {
     pressCaps();
   } else if (e.key === "Shift") {
-  } else if (e.key === "Control") {
-  } else if (e.key === "Alt") {
-  } else if (e.key === "Delete") {
+  } else if (e.key === "Control" || e.key === "Alt" || e.key === "Delete") {
+  } else if (e.ctrlKey) {
+    console.log(e);
   } else {
     buffer.push(e.key);
     monitor.textContent += e.key;
@@ -134,13 +134,17 @@ function pressCaps() {
 }
 
 function releaseBtn(btn) {
-  btn.style.backgroundColor = "var(--key-color)";
+  if (btn.textContent === "enter") {
+    btn.style.backgroundColor = "var(--enter-key-color)";
+  } else btn.style.backgroundColor = "var(--key-color)";
   btn.style.color = "var(--letter-color)";
   btn.style.top = "0";
 }
 
 function pressBtn(btn) {
-  btn.style.backgroundColor = "var(--key-pressed-color)";
+  if (btn.textContent === "enter") {
+    btn.style.backgroundColor = "var(--enter-key-pressed-color)";
+  } else btn.style.backgroundColor = "var(--key-pressed-color)";
   btn.style.color = "var(--letter-pressed-color)";
   btn.style.top = "2px";
 }
