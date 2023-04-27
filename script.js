@@ -108,8 +108,13 @@ window.addEventListener("keyup", (e) => {
 
 symbolKeys.forEach((button) => {
   button.addEventListener("click", () => {
-    monitor.textContent += button.textContent;
-    buffer.push(button.textContent);
+    if (capsPressed) {
+      monitor.textContent += button.textContent.toUpperCase();
+      buffer.push(button.textContent.toUpperCase());
+    } else {
+      monitor.textContent += button.textContent;
+      buffer.push(button.textContent);
+    }
   });
 });
 
