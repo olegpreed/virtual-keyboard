@@ -36,6 +36,17 @@ window.addEventListener("keydown", (e) => {
   e.preventDefault(); // removes default behavior of keydown events like when pressing space moves page down
   let pressedBtn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   pressBtn(pressedBtn);
+  let key = e.key;
+  if (e.key === "<") key = ",";
+  if (e.key === ">") key = ".";
+  if (
+    e.key === "ArrowUp" ||
+    e.key === "ArrowDown" ||
+    e.key === "ArrowLeft" ||
+    e.key === "ArrowRight"
+  ) {
+    key = arrowKeys[e.keyCode];
+  }
   if (e.key === "Backspace") {
     buffer.pop();
     monitor.textContent = buffer.join("");
@@ -48,37 +59,35 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key === " ") {
     monitor.textContent += " ";
     buffer.push(" ");
-  } else if (
-    e.key === "ArrowUp" ||
-    e.key === "ArrowDown" ||
-    e.key === "ArrowLeft" ||
-    e.key === "ArrowRight"
-  ) {
-    monitor.textContent += arrowKeys[e.keyCode];
-    buffer.push(arrowKeys[e.keyCode]);
   } else if (e.key === "CapsLock") {
     pressCaps();
   } else if (e.key === "Shift") {
+    capsPressed = !capsPressed;
   } else if (e.ctrlKey && e.altKey) {
     changeLang();
   } else if (e.key === "Control" || e.key === "Alt" || e.key === "Delete") {
   } else {
-	let key;
-	function insertKey(key) {
-		buffer.push(key);
-		monitor.textContent += key;
-	}
+    function insertKey(key) {
+      buffer.push(key);
+      monitor.textContent += key;
+    }
     if (lang === "rus") {
       if (capsPressed) {
-        key = engToRus[e.key.toLowerCase()].toUpperCase();
-		insertKey(key);
+        key = engToRus[key.toLowerCase()].toUpperCase();
+        insertKey(key);
       } else {
-		key = engToRus[e.key];
+        key = engToRus[key];
         insertKey(key);
       }
     } else {
-     insertKey(e.key);
+      insertKey(key);
     }
+  }
+});
+
+window.addEventListener("keyup", (e) => {
+  if (e.key === "Shift") {
+    capsPressed = !capsPressed;
   }
 });
 
@@ -171,7 +180,7 @@ function changeLang() {
   if (lang === "eng") {
     lang = "rus";
     symbolKeys.forEach((button) => {
-      button.textContent = engToRus[button.textContent];
+      button.textContent = engToRus[button.textContent.toLowerCase()];
     });
   } else {
     lang = "eng";
