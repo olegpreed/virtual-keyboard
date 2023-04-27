@@ -6,10 +6,9 @@ if (localStorage.getItem("lang") === undefined) {
   localStorage.setItem("lang", "eng");
 }
 
-let eng = localStorage.getItem("lang") === "eng" ? "true" : "false";
 let lang = { ...engToRus };
 
-if (eng === "true") {
+if (localStorage.getItem("lang") === "eng") {
   for (let key in lang) {
     lang[key] = key;
   }
@@ -94,4 +93,5 @@ mainContent.innerHTML = `<section class="interface__monitor">
 </div>
 </section>
 `;
+
 document.body.appendChild(mainContent);

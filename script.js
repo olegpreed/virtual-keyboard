@@ -15,19 +15,18 @@ const enter = document.getElementById("enter-btn");
 const capsLock = document.getElementById("caps-btn");
 const backspace = document.getElementById("backspace-btn");
 
-let buffer = [];
-monitor.textContent = "";
 setInterval(() => {
   cursor.style.display = cursor.style.display === "none" ? "inline" : "none";
-}, 1000);
+}, 800);
 
+let buffer = [];
+monitor.textContent = "";
 const arrowKeys = {
   37: "←",
   38: "↑",
   39: "→",
   40: "↓",
 };
-
 let capsPressed;
 
 window.addEventListener("keydown", (e) => {
@@ -66,23 +65,21 @@ window.addEventListener("keydown", (e) => {
     changeLang();
   } else if (e.key === "Control" || e.key === "Alt" || e.key === "Delete") {
   } else {
-    function insertKey(key) {
-      buffer.push(key);
-      monitor.textContent += key;
-    }
-    if (localStorage.getItem("lang") === "rus") {
-      if (capsPressed) {
-		let temp = engToRus[key.toLowerCase()].toUpperCase(); //checks if key is a letter
-        key = temp ? temp : key;
-        insertKey(key);
-      } else {
-		let temp = engToRus[key]; //checks if key is a letter
-        key = temp ? temp : key;
-        insertKey(key);
+    key = key.toLowerCase();
+    if (localStorage.getItem("lang") === "eng") {
+      // checks that no matter what language input user has it will only text in the language of a virtual keyboard
+      for (let engKey in engToRus) {
+        if (engToRus[engKey] === key) {
+          key = engKey;
+        }
       }
-    } else {
-      insertKey(key);
+    } else if (localStorage.getItem("lang") === "rus") {
+      key = engToRus[key] ? engToRus[key] : key;
     }
+    if (capsPressed) {
+      key = key.toUpperCase();
+    }
+    insertKey(key);
   }
 });
 
@@ -106,7 +103,7 @@ allKeys.forEach((button) => {
 
 window.addEventListener("keyup", (e) => {
   let pressedBtn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  if (pressedBtn.textContent != "caps") releaseBtn(pressedBtn);
+  if (pressedBtn && pressedBtn.textContent != "caps") releaseBtn(pressedBtn);
 });
 
 symbolKeys.forEach((button) => {
@@ -167,6 +164,7 @@ function releaseBtn(btn) {
 }
 
 function pressBtn(btn) {
+  if (btn === null) return;
   if (btn.textContent === "enter") {
     btn.style.backgroundColor = "var(--enter-key-pressed-color)";
   } else btn.style.backgroundColor = "var(--key-pressed-color)";
@@ -181,14 +179,19 @@ function changeLang() {
   if (localStorage.getItem("lang") === "eng") {
     localStorage.setItem("lang", "rus");
     symbolKeys.forEach((button) => {
-		let rusKey = engToRus[button.textContent.toLowerCase()];
-        button.textContent =  rusKey ? rusKey : button.textContent;
+      let rusKey = engToRus[button.textContent.toLowerCase()];
+      button.textContent = rusKey ? rusKey : button.textContent;
     });
   } else {
-	localStorage.setItem("lang", "eng");
+    localStorage.setItem("lang", "eng");
     symbolKeys.forEach((button) => {
-		let engKey = rusToEng(button.textContent);
-        button.textContent = engKey ? engKey : button.textContent;
+      let engKey = rusToEng(button.textContent);
+      button.textContent = engKey ? engKey : button.textContent;
     });
   }
+}
+
+function insertKey(key) {
+  buffer.push(key);
+  monitor.textContent += key;
 }
