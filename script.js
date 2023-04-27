@@ -1,4 +1,4 @@
-// import { Node, printList } from "./classes.js";
+import { engToRus } from "./rus-keyboard.js";
 
 const symbolKeys = document.querySelectorAll(".keyboard__key");
 const terminal = document.querySelector(".interface__screen");
@@ -29,6 +29,7 @@ const arrowKeys = {
 };
 
 let capsPressed;
+let lang = "eng";
 
 window.addEventListener("keydown", (e) => {
   terminal.scrollTop = terminal.scrollHeight; // allows screen to scroll down automatically when text overflows
@@ -58,12 +59,26 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key === "CapsLock") {
     pressCaps();
   } else if (e.key === "Shift") {
+  } else if (e.ctrlKey && e.altKey) {
+    changeLang();
   } else if (e.key === "Control" || e.key === "Alt" || e.key === "Delete") {
-  } else if (e.ctrlKey) {
-    console.log(e);
   } else {
-    buffer.push(e.key);
-    monitor.textContent += e.key;
+	let key;
+	function insertKey(key) {
+		buffer.push(key);
+		monitor.textContent += key;
+	}
+    if (lang === "rus") {
+      if (capsPressed) {
+        key = engToRus[e.key.toLowerCase()].toUpperCase();
+		insertKey(key);
+      } else {
+		key = engToRus[e.key];
+        insertKey(key);
+      }
+    } else {
+     insertKey(e.key);
+    }
   }
 });
 
@@ -147,4 +162,21 @@ function pressBtn(btn) {
   } else btn.style.backgroundColor = "var(--key-pressed-color)";
   btn.style.color = "var(--letter-pressed-color)";
   btn.style.top = "2px";
+}
+
+function changeLang() {
+  function rusToEng(symbol) {
+    return Object.keys(engToRus).find((key) => engToRus[key] === symbol);
+  }
+  if (lang === "eng") {
+    lang = "rus";
+    symbolKeys.forEach((button) => {
+      button.textContent = engToRus[button.textContent];
+    });
+  } else {
+    lang = "eng";
+    symbolKeys.forEach((button) => {
+      button.textContent = rusToEng(button.textContent);
+    });
+  }
 }
