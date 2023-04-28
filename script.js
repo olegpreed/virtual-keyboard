@@ -209,16 +209,34 @@ function insertKey(key) {
 }
 
 function easterEgg() {
+  const characters = [
+    "𓋴",
+    "𓏲",
+    "𓍒",
+    "𓄿",
+    "𓁼",
+    "𓍵",
+    "𓌛",
+    "𓊽",
+    "𓈍",
+    "𓇴",
+    "𓆺",
+    "𓆣",
+    "𓆏",
+    "𓃀",
+    "𓂫",
+    "𓂀",
+  ];
   function randomChar() {
-    return String.fromCharCode(0x13000 + Math.random() * (0x131B9-0x13000+1));
+    let randomIndx = Math.floor(Math.random() * characters.length);
+    return characters[randomIndx];
   }
   terminal.style.setProperty("--text-color", "red");
-  monitor.classList.add('easter-egg');
   monitor.textContent = "";
   setTimeout(() => {
     setInterval(() => {
       terminal.scrollTop = terminal.scrollHeight;
       monitor.textContent += randomChar();
-    }, 4);
+    }, 8);
   }, 1500);
 }
