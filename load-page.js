@@ -2,7 +2,7 @@ import { engToRus } from "./rus-keyboard.js";
 
 const mainContent = document.createElement("main");
 mainContent.classList.add("interface");
-if (localStorage.getItem("lang") === undefined) {
+if (localStorage.getItem("lang") === null) {
   localStorage.setItem("lang", "eng");
 }
 
