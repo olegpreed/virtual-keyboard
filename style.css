@@ -2,6 +2,7 @@
   --bg-color: #1e1e24;
   --screen-width: 512px;
   --screen-height: 400px;
+  --note-width: 160px;
   --panel-width: calc((var(--screen-width) / 4));
   --monitor-width: calc(var(--screen-width) + 200px);
   --monitor-height: calc(var(--screen-height) + 60px);
@@ -15,6 +16,11 @@
   --text-color: #45ad45;
   --letter-color: #e1ddd6;
   --letter-pressed-color: #9b9997;
+  --enter-key-color: #a28282;
+  --enter-key-pressed-color: #7f6666;
+  --stick-color: white;
+  --note-color: #ffffae;
+  --note-text-color: rgba(33, 33, 96, 0.932);
 }
 
 * {
@@ -43,12 +49,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border-bottom: 5px solid rgba(0, 0, 0, 0.143); */
 }
 
-.interface__screen::before {
+.screen__input::before {
   content: ">:";
   margin-right: 6px;
   letter-spacing: 0px;
+  font-family: "IBM Plex Mono", monospace !important;
 }
 
 .interface__screen {
@@ -61,7 +69,6 @@ body {
   text-shadow: 0 0 6px var(--text-color), 0 0 4px var(--text-color);
   padding: 30px;
   letter-spacing: 1px;
-  white-space: pre;
   font-weight: 700;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -72,11 +79,56 @@ body {
   width: 0;
 }
 
+.screen__cursor {
+  opacity: 1;
+  transition: 300ms;
+}
+
 .interface__side-panel {
   height: var(--screen-height);
   width: var(--panel-width);
   background-color: var(--panel-color);
   border-radius: 0 10px 10px 0;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.side-panel__note {
+  display: flex;
+  flex-direction: column;
+  rotate: -10deg;
+}
+
+.note__stick {
+  width: calc(var(--note-width) / 3);
+  height: calc(var(--note-width) / 6);
+  background-color: var(--stick-color);
+  align-self: center;
+  opacity: 0.7;
+  position: relative;
+  top: 14px;
+}
+
+.note__note {
+  width: var(--note-width);
+  height: var(--note-width);
+  background-color: var(--note-color);
+  padding: 30px 10px;
+  font-family: "Rock Salt", cursive;
+  font-size: 10px;
+  color: var(--note-text-color);
+  text-align: center;
+  box-shadow: -3px 4px 0px rgba(0, 0, 0, 0.337);
+}
+
+.side-panel__logo {
+  width: 80%;
+  flex-grow: 0;
+  mix-blend-mode: multiply;
+  opacity: 70%;
 }
 
 .interface__computer {
@@ -147,4 +199,8 @@ body {
 
 .keyboard__key--space {
   width: calc(var(--key-width) * 8) !important;
+}
+
+#enter-btn {
+  background-color: var(--enter-key-color);
 }
