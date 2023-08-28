@@ -1,7 +1,6 @@
 # Virtual Keyboard - Apple II Style
 
-![Virtual Keyboard](screenshot.png)
-
+![Virtual Keyboard]([screenshot.png](https://user-images.githubusercontent.com/86532263/235345995-4d4bd7ba-7703-4b84-b3c4-571fbd844f96.png))
 Welcome to the Virtual Keyboard project, an interactive web simulation that pays homage to the iconic Apple II computer. Emulating the aesthetic of the Apple II, this keyboard brings a touch of nostalgia while offering modern functionality.
 
 ## Features
@@ -12,15 +11,11 @@ Welcome to the Virtual Keyboard project, an interactive web simulation that pays
 - **Caps Lock** and **Shift** functions for uppercase letters.
 - Realistic click sounds for a tactile experience.
 
-## Screenshot
-
-![Virtual Keyboard Screenshot](screenshot.png)
-
 ## Comparison with Apple II Keyboard
 
 We've taken care to capture the essence of the original Apple II keyboard. The design and arrangement are closely aligned with the iconic keyboard of the Apple II computer. For a side-by-side comparison, check out the photo below:
 
-![Apple II Keyboard Comparison](apple_ii_keyboard.jpg)
+![Apple II Keyboard Comparison]([apple_ii_keyboard.jpg](https://user-images.githubusercontent.com/86532263/235345755-07c42127-b4f2-47f5-8234-41cc6cc2df2b.png))
 
 ## Try It Out
 
