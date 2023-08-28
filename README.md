@@ -1,6 +1,7 @@
 # Virtual Keyboard - Apple II Style
 
-![Virtual Keyboard]([screenshot.png](https://user-images.githubusercontent.com/86532263/235345995-4d4bd7ba-7703-4b84-b3c4-571fbd844f96.png))
+<img width="1190" alt="Screen Shot 2023-08-28 at 3 35 37 PM" src="https://github.com/olegpreed/virtual-keyboard/assets/86532263/676de5dd-7fbf-4e15-b5dc-94edec278e05">
+
 Welcome to the Virtual Keyboard project, an interactive web simulation that pays homage to the iconic Apple II computer. Emulating the aesthetic of the Apple II, this keyboard brings a touch of nostalgia while offering modern functionality.
 
 ## Features
