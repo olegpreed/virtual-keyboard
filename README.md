@@ -12,9 +12,9 @@ Welcome to the Dharma Initiative Virtual Keyboard project, an interactive web si
 - **Multi-Language Support:** Easily switch between English and Cyrillic alphabets.
 - **Hidden Easter Egg:** Press the notorious "4 8 15 16 23 42" numbers for a surprise!
 
-<p align="center">
-![image](https://github.com/olegpreed/virtual-keyboard/assets/86532263/44e2c7a8-d485-40cd-96d7-0fd2316a7ee0)
-</p>
+
+<p align="center">![image](https://github.com/olegpreed/virtual-keyboard/assets/86532263/44e2c7a8-d485-40cd-96d7-0fd2316a7ee0)</p>
+
 
 ## Try It Out
 
