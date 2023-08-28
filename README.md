@@ -1,8 +1,8 @@
 # Virtual Keyboard - Apple II Style
 
-<img width="1190" alt="Screen Shot 2023-08-28 at 3 35 37 PM" src="https://github.com/olegpreed/virtual-keyboard/assets/86532263/676de5dd-7fbf-4e15-b5dc-94edec278e05">
+<img width="1171" alt="Screen Shot 2023-08-28 at 3 38 05 PM" src="https://github.com/olegpreed/virtual-keyboard/assets/86532263/68e99ae3-e787-40d3-8acc-6b970dfa0425">
 
-Welcome to the Virtual Keyboard project, an interactive web simulation that pays homage to the iconic Apple II computer. Emulating the aesthetic of the Apple II, this keyboard brings a touch of nostalgia while offering modern functionality.
+Welcome to the Dharma Initiative Virtual Keyboard project, an interactive web simulation that pays homage to the iconic Apple II computer and is inspired by the enigmatic computer found in the bunker on the Lost TV series. With a retro design reminiscent of the Apple II era and a special Easter egg tribute, this keyboard offers a unique blend of nostalgia and mystery.
 
 ## Features
 
@@ -11,12 +11,14 @@ Welcome to the Virtual Keyboard project, an interactive web simulation that pays
 - Support for essential keys, including letters, numbers, and common symbols.
 - **Caps Lock** and **Shift** functions for uppercase letters.
 - Realistic click sounds for a tactile experience.
+- **Hidden Easter Egg:** Press the notorious "4 8 15 16 23 42" numbers for a surprise!
+- **Multi-Language Support:** Easily switch between English and Cyrillic alphabets.
 
 ## Comparison with Apple II Keyboard
 
 We've taken care to capture the essence of the original Apple II keyboard. The design and arrangement are closely aligned with the iconic keyboard of the Apple II computer. For a side-by-side comparison, check out the photo below:
 
-![Apple II Keyboard Comparison]([apple_ii_keyboard.jpg](https://user-images.githubusercontent.com/86532263/235345755-07c42127-b4f2-47f5-8234-41cc6cc2df2b.png))
+![image](https://github.com/olegpreed/virtual-keyboard/assets/86532263/44e2c7a8-d485-40cd-96d7-0fd2316a7ee0)
 
 ## Try It Out
 
