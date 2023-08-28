@@ -2,23 +2,19 @@
 
 <img width="1171" alt="Screen Shot 2023-08-28 at 3 38 05 PM" src="https://github.com/olegpreed/virtual-keyboard/assets/86532263/68e99ae3-e787-40d3-8acc-6b970dfa0425">
 
-Welcome to the Dharma Initiative Virtual Keyboard project, an interactive web simulation that pays homage to the iconic Apple II computer and is inspired by the enigmatic computer found in the bunker on the Lost TV series. With a retro design reminiscent of the Apple II era and a special Easter egg tribute, this keyboard offers a unique blend of nostalgia and mystery.
+<div style="color: green;">Welcome to the Dharma Initiative Virtual Keyboard project, an interactive web simulation that pays homage to the iconic Apple II computer and is inspired by the enigmatic computer found in the bunker on the Lost TV series. With a retro design reminiscent of the Apple II era and a special Easter egg tribute, this keyboard offers a unique blend of nostalgia and mystery.</div>
 
 ## Features
 
 - Retro design reminiscent of the Apple II era.
-- Intuitive and responsive keyboard layout.
 - Support for essential keys, including letters, numbers, and common symbols.
 - **Caps Lock** and **Shift** functions for uppercase letters.
-- Realistic click sounds for a tactile experience.
-- **Hidden Easter Egg:** Press the notorious "4 8 15 16 23 42" numbers for a surprise!
 - **Multi-Language Support:** Easily switch between English and Cyrillic alphabets.
+- **Hidden Easter Egg:** Press the notorious "4 8 15 16 23 42" numbers for a surprise!
 
-## Comparison with Apple II Keyboard
-
-We've taken care to capture the essence of the original Apple II keyboard. The design and arrangement are closely aligned with the iconic keyboard of the Apple II computer. For a side-by-side comparison, check out the photo below:
-
+<div style="text-align: center;">
 ![image](https://github.com/olegpreed/virtual-keyboard/assets/86532263/44e2c7a8-d485-40cd-96d7-0fd2316a7ee0)
+</div>
 
 ## Try It Out
 
