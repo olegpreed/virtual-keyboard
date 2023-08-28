@@ -13,7 +13,13 @@ Welcome to the Dharma Initiative Virtual Keyboard project, an interactive web si
 - **Hidden Easter Egg:** Press the notorious "4 8 15 16 23 42" numbers for a surprise!
 
 
-<p align="center">![image](https://github.com/olegpreed/virtual-keyboard/assets/86532263/44e2c7a8-d485-40cd-96d7-0fd2316a7ee0)</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/olegpreed/virtual-keyboard/assets/86532263/44e2c7a8-d485-40cd-96d7-0fd2316a7ee0" alt="Apple II Keyboard Comparison" />
+    </td>
+  </tr>
+</table>
 
 
 ## Try It Out
