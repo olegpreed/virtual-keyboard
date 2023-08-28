@@ -2,7 +2,7 @@
 
 <img width="1171" alt="Screen Shot 2023-08-28 at 3 38 05 PM" src="https://github.com/olegpreed/virtual-keyboard/assets/86532263/68e99ae3-e787-40d3-8acc-6b970dfa0425">
 
-Welcome to the Dharma Initiative Virtual Keyboard project, an interactive web simulation that pays homage to the iconic Apple II computer and is inspired by the enigmatic computer found in the bunker on the Lost TV series. With a retro design reminiscent of the Apple II era and a special Easter egg tribute, this keyboard offers a unique blend of nostalgia and mystery.
+Welcome to the Dharma Initiative Virtual Keyboard project, an interactive web simulation that pays homage to the iconic Apple II computer and is inspired by the enigmatic computer found in the bunker on the Lost TV series.
 ## 🚀 **[Try It Out (Desktop Version)](https://olegpreed.github.io/virtual-keyboard/)**
 
 ## Features
